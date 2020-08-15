@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import TodoModel from '../models/TodoModel';
 import Todos from '../components/Todos';
+import CreateTodoForm from '../components/CreateTodoForm';
 
 
 class TodosContainer extends Component {
@@ -11,21 +12,37 @@ class TodosContainer extends Component {
         };
     };
 
-    componentDidMount() {
-        this.fetchData();
-    };
+    // componentDidMount() {
+    //     this.fetchData();
+    // };
 
-    fetchData = () => {
-        TodoModel.all().then((res) => {
-            this.setState ({
-                todos: res.data.todos,
-            });
+    // fetchData = () => {
+    //     TodoModel.all().then((res) => {
+    //         this.setState ({
+    //             todos: res.data.todos,
+    //         });
+    //     });
+    // };
+
+    createTodo = (todo) => {
+        let newTodo = {
+            body: todo,
+            completed: false,
+        };
+
+        TodoModel.create(newTodo).then((res) => {
+            let todos =this.state.todos;
+            todos.push(res.data);
+            this.setState({ todos: todos });
         });
     };
 
     render() {
         return (
-            <div className='todoscontainer'>
+            <div className='todosComponent'>
+                <CreateTodoForm 
+                createTodo={this.createTodo}/>
+
                 <Todos 
                     todos={this.state.todos} />
             </div>
