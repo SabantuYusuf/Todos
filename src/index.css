@@ -49,7 +49,7 @@ html {
 }
 
 body {
-  /* background-image: url('images/grass.jpg'); */
+  background-image: url('images/grass.jpg');
   background-position: center; /* Center the image */
   background-repeat: no-repeat; /* Do not repeat the image */
   background-size: fill;
@@ -177,7 +177,7 @@ li a {
   line-height: 2;
 }
 
-li:hover a:hover {
+.todo-item:hover a:hover {
   text-decoration: underline;
 }
 
@@ -226,11 +226,11 @@ ul input[type="checkbox"] {
   margin-right: 1em;
 }
 
-.delete {
+/* .delete {
   background-color: #e74c3c;
-}
+} */
 
-.delete:hover {
+.remove:hover {
   background-color: #c0392b
 }
 

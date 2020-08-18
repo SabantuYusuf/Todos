@@ -29,11 +29,11 @@ class Todo extends Component {
                 <span className="todo-item">
                     {this.props.todo.body}</span>
 
-                <span className='eidt'
+                <span className="edit"
                 onClick={this.toggleBodyForm}> Edit </span> 
 
                 <span 
-                className='remove'
+                className="remove"
                 onClick={this.deleteClickedTodo}>
                     Remove</span>
 
